@@ -251,7 +251,12 @@ I created a Dashboard using Tableau Public to present my findings through effect
 
 ## 6. ACT
 
+Based on my analysis, my final conclusion is that Cyclistic should convert their casual members into annual members by offering them special offers and discounts.
 
+Based on my findings, my top 3 recommendations are:
 
+1. Discounts for casual members who have an average trip length of minimum 10 minutes. I would recommend sending them a discount code for buying annual membership through SMS or e-mail.
 
-
+2. Membership benefits: make contracts with sports shops to offer annual members a discount for every purchase they make 
+  
+3. Sales representatives at top 10 starting stations where casual riders begin their trips on weekends. The sales representatives should show the casual riders the benefits of having annual membership, and offer them discount
