@@ -92,11 +92,13 @@ Most Cyclistic's members preffer classic bikes. Docked bikes are the least used 
 
 ![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/4153adb0-f746-42cf-ab22-1236283f1f0a)
 
+
 2.1. Average of trip length for every member type
 
 Casual members have a considerably higher average trip length than annual members.
 
 ![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/11581613-949a-462b-ad53-f88cd62e77fb)
+
 
 2.2. Max of trip lengths for every member type
 
@@ -104,15 +106,18 @@ Casual members have a maximum trip length of 12136 minutes (202 hours), while an
 
 ![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/415bcd00-6a9e-4f80-bad6-4faf6d702d7b)
 
+
 2.3. Min of trip lengths for every member type
 
 Minimum trip length for both member types is 0 minutes, which means the trip can last a few seconds.
 
 ![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/88ed480b-6cd6-4904-9d95-d0e04ee6e2db)
 
+
 3. Total number of trips longer than 24h
 
 ![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/71ab3a00-e020-41de-b216-99ce3385eed9)
+
 
 4. Number of trips longer than 1 day per member type and bike type
 
@@ -120,11 +125,13 @@ There are zero trips longer than 1 day for electric bikes and annual members who
 
 ![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/734fc8db-e306-46cf-8f8f-251a34a72497)
 
+
 5. Average trip length in minutes for each day of the week by member type
 
 Casual and annual members have a higher average trip length on weekends
 
 ![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/cdd6cb15-a68a-4440-92ab-04aa0588ed2d)
+
 
 6. Average trip length in minutes per month for each member type
 
@@ -134,9 +141,11 @@ For annual members:
 
 ![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/d4da1601-cd24-4324-95a1-5f51feaf4076)
 
+
 For casual members:
 
 ![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/ed9c6917-21de-435c-9a84-6d2f79584441)
+
 
 7.1 Number of trips per hour by each member types
 
@@ -192,6 +201,7 @@ I copy-pasted the result because it couldn't fit in a screenshot.
 - 5922	4	member
 - 4709	3	member
 
+
 7.2 Number of trips per weekday by each member types
 
 ![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/fb9e6592-9a25-47df-9562-a01c559c0af3)
@@ -228,6 +238,7 @@ I copy-pasted the result because it couldn't fit in a screenshot.
 I created a Dashboard using Tableau Public to present my findings through effective data vizualisations.
 
 ![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/b986ed71-0697-49ae-9a86-53ee3b020b0b)
+
 
 ### Key findings:
 
