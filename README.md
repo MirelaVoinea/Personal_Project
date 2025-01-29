@@ -33,11 +33,12 @@ These are the three questions which will guide the future marketing program:
 ## 2. PREPARE
 
 ### Data Source
-I will use Cyclicstic's historical trip data from the previous 12 months to analyze and identify trends. The data has been made available by Motivate International Inc.
+I will use Cyclicstic's historical trip data from the first 4 months of 2024 to analyze and identify trends. The data has been made available by Motivate International Inc.
 The data has been downloaded from [divvy-tripdata](https://divvy-tripdata.s3.amazonaws.com/index.html) and stored in a folder into my computer using proper naming conventions.
+* The reason why I used only 4 months instead of 12 months is because of Bigquery's storage limitations.
 
 ### Data organization
-There are 12 CSV files, every file representing a month of historical trip data, from January 2023 to December 2023.
+There are 4 CSV files, every file representing a month of historical trip data, from January 2024 to April 2024.
 Each CSV file organizes its data into 13 columns. Each column is named using proper naming conventions: 
 - "ride_id" - string format, unique identifier for each ride
 - "rideable_type" - string format, there are 3 types of bikes: electric, classic or docked
@@ -62,15 +63,15 @@ Each CSV file organizes its data into 13 columns. Each column is named using pro
   
 There are no issues with bias or credibility in this data, because this is a public dataset especially created to be used in a case study.
 
-I imported the CSV files into Microsoft SQL Server.
-Using SQL function UNION I combined the 12 tables I've just imported into a new table, resulting in over 5 million rows (5719877 rows). 
+I imported the CSV files into Bigquery (Google Cloud).
+Using SQL function UNION ALL I combined the 4 tables I've just imported into a new table, resulting in over 1 million rows (1.084.749 rows) 
 
 ## 3. PROCESS
 
 At this phase of the analysis I will transform, clean the data and check for possible errors, inaccuracies, nulls, and duplicates.
-The tool I will be using for this step is SQL, through Microsoft SQL Server software.
+The tool I will be using for this step is SQL, through Bigquery.
 
-Firstly we create a staging table, so I don't modify the original raw table.
+Firstly we create a duplicate table, so I don't modify the original raw table.
 
 - Remove duplicates
 - Standardize the data
