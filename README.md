@@ -87,6 +87,8 @@ Most Cyclistic's members preffer classic bikes. Docked bikes are the least used 
 ![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/4153adb0-f746-42cf-ab22-1236283f1f0a)
 
 
+
+
 2.1. Average of trip length for every member type
 
 Casual members have a considerably higher average trip length than annual members.
