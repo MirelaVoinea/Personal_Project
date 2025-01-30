@@ -74,11 +74,11 @@ Firstly we create a duplicate table, so I don't modify the original raw table.
 ## 4. ANALYZE
 
 In this phase of the analysis process I will write queries to get insights about Cyclist's annual and casual members.
-Before writing my queries, I will create 4 additional columns into my table:
+Firstly I will create 4 additional columns into my new table:
+- "start_month" - integer format, month when trip has started, for example month 2 is February
+- "time_of_the_day_ride_start"  - string format, time of the day when trip has started, for example morning between hours 05-12
+- "day_of_week_ride_start" - string format, name of the weekday when trip has started, for example Monday
 - "trip_length_minutes" - integer format, every trip length in minutes, or difference between trip's ending date and trip's starting date
-- "weekday" - string format, weekday name when trip has started
-- "month" - string format, month name when trip has started
-- "hour" - integer format, hour when trip has started
 
 1. People's favorite bike type
 
