@@ -1,1 +1,241 @@
+--- 1. I UNION ALL data from 4 tables into a single table
+--- Every table represents a month, so the result table will contain data from first months of 2024
+create or replace table `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata` as
+select *
+from `winged-metric-449312-v3.cyclistic_case_study.2024_01_divvy_tripdata`
+UNION ALL
+select *
+from `winged-metric-449312-v3.cyclistic_case_study.2024_02_divvy_tripdata`
+UNION ALL
+select *
+from `winged-metric-449312-v3.cyclistic_case_study.2024_03_divvy_tripdata`
+UNION ALL
+select *
+from `winged-metric-449312-v3.cyclistic_case_study.2024_04_divvy_tripdata`
+
+
+--- 2. Checking if there are nulls and counting the number of rows that have nulls
+select 
+  ride_id, 
+  rideable_type, 
+  started_at, 
+  ended_at, 
+  start_station_name, 
+  start_station_id, 
+  end_station_name, 
+  end_station_id, 
+  start_lat, 
+  start_lng, 
+  end_lat, 
+  end_lng,
+  member_casual, 
+  count(*)
+from `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata_v2`
+where ride_id is null 
+or rideable_type is null 
+or started_at is null 
+or ended_at is null
+or start_station_name is null 
+or start_station_id is null 
+or end_station_name is null 
+or end_station_id is null 
+or start_lat is null 
+or start_lng is null 
+or end_lat is null 
+or end_lng is null 
+or member_casual is null
+group by ride_id, rideable_type, started_at, ended_at, 
+  start_station_name, start_station_id, end_station_name, end_station_id, 
+  start_lat, start_lng, end_lat, end_lng,
+  member_casual
+having count(1)>1
+--- there are 258.129 rows that have nulls
+
+
+--- 3. Counting how many nulls for each column
+select 
+  countif(ride_id IS NULL) as null_count_ride_id,
+  countif(rideable_type IS NULL) as null_count_rideable_type,
+  countif(started_at IS NULL) as null_count_started_at,
+  countif(ended_at IS NULL) as null_count_ended_at,
+  countif(start_station_name IS NULL) as null_count_start_station_name,
+  countif(start_station_id IS NULL) as null_count_start_station_id,
+  countif(end_station_name IS NULL) as null_count_end_station_name,
+  countif(end_station_id IS NULL) as null_count_end_station_id,
+  countif(start_lat IS NULL) as null_count_start_lat,
+  countif(start_lng IS NULL) as null_count_start_lng,
+  countif(end_lat IS NULL) as null_count_end_lat,
+  countif(end_lng IS NULL) as null_count_end_lng,
+  countif(member_casual IS NULL) as null_count_member_casual
+from `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata_v2`
+--- Only columns start_station_name, start_station_id, end_station_id, end_station_name, end_lat and end_lng have nulls
+
+
+--- 4. Create a new table with new columns added and excluding rows with nulls
+--- The new columns added are:
+--start_month (month when the ride started)
+--time_of_the_day_ride_start (in what time of the day did the ride start, for example morning)
+--day_of_week_ride_start (in what day of the week did the ride start, for example Tuesday)
+--trip_length_minutes (the duration of the ride in minutes)
+create or replace table `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata_v2` as
+select 
+  ride_id, 
+  rideable_type, 
+  started_at, 
+  ended_at, 
+  start_station_name, 
+  start_station_id, 
+  end_station_name, 
+  end_station_id, 
+  start_lat, 
+  start_lng, 
+  end_lat, 
+  end_lng,
+  member_casual,
+  extract(month from started_at) as start_month,
+
+-- Creating time intervals for ride start time
+  case
+    when extract(hour from started_at) >= 5 and extract(hour from started_at) < 12 then 'morning 05-12'
+    when extract(hour from started_at) >= 12 and extract(hour from started_at) < 17 then 'afternoon 12-17'
+    when extract(hour from started_at) >= 17 and extract(hour from started_at) < 21 then 'evening 17-21'
+    when extract(hour from started_at) >= 21 and extract(hour from started_at) <= 23 then 'night 21-04'
+    when extract(hour from started_at) >= 00 and extract(hour from started_at) < 5 then 'night 21-04'
+  end as time_of_the_day_ride_start,
+
+-- Extracting day of the week for every ride start time
+  case 
+    when extract(DAYOFWEEK from started_at) = 1 then 'Sunday'
+    when extract(DAYOFWEEK from started_at) = 2 then 'Monday'
+    when extract(DAYOFWEEK from started_at) = 3 then 'Tuesday'
+    when extract(DAYOFWEEK from started_at) = 4 then 'Wednesday'
+    when extract(DAYOFWEEK from started_at) = 5 then 'Thursday'
+    when extract(DAYOFWEEK from started_at) = 6 then 'Friday'
+    when extract(DAYOFWEEK from started_at) = 7 then 'Saturday'
+  end as day_of_week_ride_start,
+
+-- Calculating trip lengths in minutes
+  date_diff(ended_at, started_at, minute) as trip_length_minutes
+
+from `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata`
+where start_station_name IS NOT NULL 
+and start_station_id IS NOT NULL 
+and end_station_name IS NOT NULL  
+and end_station_id IS NOT NULL 
+and end_lat IS NOT NULL 
+and end_lng IS NOT NULL
+;
+--- I excluded the rows with nulls instead of deleting them from the table afterwards because of Bigquery limitations.
+
+
+--- 5. Checking if there are negative trip lenghts so I can exclude them
+select *
+from `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata_v2`
+where trip_length_minutes < 0
+--- No negative trips
+
+
+--- 6. Calculating AVG, MAX, MIN for trip length in minutes for every member type
+select 
+  member_casual,
+  avg(trip_length_minutes) as avg_trip_length_minutes,
+  max(trip_length_minutes) as max_trip_length_minutes,
+  min(trip_length_minutes) as min_trip_length_minutes
+from `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata_v2`
+group by member_casual
+--- Casual members have a bigger average for trip lenghts
+--- Maximum trip length in minutes for both member types are nearly the same
+
+
+--- 7. Counting the total number of rides longer than 1 hour by member types
+select 
+  member_casual,
+  count(*) as number_rides_longer_than_one_hour
+from `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata_v2`
+where trip_length_minutes > 59
+group by member_casual
+--- Casual members have nearly 4 times more rides longer than 1 hour
+
+
+--- 8. Both member types preffer classic bikes for trips longer than 1 hour
+select 
+  member_casual,
+  rideable_type,
+  count(*) as number_rides_longer_than_one_hour
+from `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata_v2`
+where trip_length_minutes > 59
+group by member_casual, rideable_type
+
+
+--- 9. Counting number of rides by member type, time of the day and day of the week to see if there are more annual member rides during the week and more casual member rides during the week-ends
+select
+  member_casual,
+  time_of_the_day_ride_start,
+  day_of_week_ride_start,
+  count(*) as number_rides
+from `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata_v2`
+group by member_casual, time_of_the_day_ride_start, day_of_week_ride_start
+order by 4 desc;
+
+--- 10. Calculating the share of rides per day of the week out of total number of rides for annual members
+with total as(
+select 
+  count(*) as rides_by_annual_members_total,
+from `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata_v2`
+where member_casual='member'
+),
+weekday as(
+select 
+  count(*) as rides_per_weekday_annual,
+  day_of_week_ride_start
+from `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata_v2`
+where member_casual='member'
+group by day_of_week_ride_start
+)
+select 
+  b.day_of_week_ride_start,
+  (b.rides_per_weekday_annual/a.rides_by_annual_members_total)*100 as share_of_rides
+from total a
+join weekday b on true
+order by 2 desc;
+
+
+--- 10. Calculating the share of rides per day of the week out of total number of rides for casual members
+with total as(
+select 
+  count(*) as rides_by_annual_members_total,
+from `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata_v2`
+where member_casual='casual'
+),
+weekday as(
+select 
+  count(*) as rides_per_weekday_annual,
+  day_of_week_ride_start
+from `winged-metric-449312-v3.cyclistic_case_study.2024_01_to_04_divvy_tripdata_v2`
+where member_casual='casual'
+group by day_of_week_ride_start
+)
+select 
+  b.day_of_week_ride_start,
+  (b.rides_per_weekday_annual/a.rides_by_annual_members_total)*100 as share_of_rides
+from total a
+join weekday b on true
+order by 2 desc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
