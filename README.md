@@ -2,7 +2,7 @@
 
 ## Introduction
 
-I am doing this case study to put to practice my new knowledge I've learned in Google Data Analysis Certificate Program. In this case study I will use two data analysis tools: SQL and Tableau.
+I am doing this case study to put to practice my new knowledge I've learned in Google Data Analysis Certificate Program. In this case study I will use two data analysis tools: SQL (Bigquery) and Data visualization tool (Looker Studio).
 
 This case study is about Cyclistic, a bike-share program that features more than 5,800 bicycles and 600 docking stations. Cyclistic sets itself apart by also offering reclining bikes, hand tricycles, and cargo bikes, making bike-share more inclusive to people with disabilities and riders who can’t use a standard two-wheeled bike. The majority of riders opt for traditional bikes; about 8% of riders use the assistive options. Cyclistic users are more likely to ride for leisure, but about 30% use the bikes to commute to work each day.
 
@@ -54,14 +54,8 @@ Each CSV file organizes its data into 13 columns. Each column is named using pro
 - "end_lng" - float format, longitude where ride ended
 - "member_casual" - string format, the type for each membership (it can be member or casual)
 
-### ROCCC analysis
-- Realiable- yes, it is unbiased
-- Original- yes, validated with the original source
-- Comprehensive- yes, it contain all the data I need to answer the stakeholders questions
-- Current- yes, it is updated monthly
-- Cited- yes
-  
 There are no issues with bias or credibility in this data, because this is a public dataset especially created to be used in a case study.
+The data provided is realiable, original and comprehensive.
 
 I imported the CSV files into Bigquery (Google Cloud).
 Using SQL function UNION ALL I combined the 4 tables I've just imported into a new table, resulting in over 1 million rows (1.084.749 rows) 
@@ -74,14 +68,13 @@ The tool I will be using for this step is SQL, through Bigquery.
 Firstly we create a duplicate table, so I don't modify the original raw table.
 
 - Remove duplicates
-- Standardize the data
 - Remove rows with null or blank values
 - Remove rides with negative trip length values
 
 ## 4. ANALYZE
 
-In this phase of the analysis process I will write queries to get insights about Cyclist's members.
-Before writing my queries, I will create 4 additional columns into my staging table:
+In this phase of the analysis process I will write queries to get insights about Cyclist's annual and casual members.
+Before writing my queries, I will create 4 additional columns into my table:
 - "trip_length_minutes" - integer format, every trip length in minutes, or difference between trip's ending date and trip's starting date
 - "weekday" - string format, weekday name when trip has started
 - "month" - string format, month name when trip has started
