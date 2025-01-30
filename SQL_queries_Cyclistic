@@ -200,7 +200,7 @@ join weekday b on true
 order by 2 desc;
 
 
---- 10. Calculating the share of rides per day of the week out of total number of rides for casual members
+--- 11. Calculating the share of rides per day of the week out of total number of rides for casual members
 with total as(
 select 
   count(*) as rides_by_annual_members_total,
