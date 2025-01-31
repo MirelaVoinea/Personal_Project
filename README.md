@@ -80,40 +80,49 @@ Firstly I will create 4 additional columns into my new table:
 - "day_of_week_ride_start" - string format, name of the weekday when trip has started, for example Monday
 - "trip_length_minutes" - integer format, every trip length in minutes, or difference between trip's ending date and trip's starting date
 
+
 1. People's favorite bike type
 
-Most Cyclistic's members preffer classic bikes. Docked bikes are the least used bikes at Cyclistic.
+![image](https://github.com/user-attachments/assets/c9792c0c-5840-45ef-802c-b1fe58d24bbc)
 
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/4153adb0-f746-42cf-ab22-1236283f1f0a)
+Most Cyclistic's members preffer classic bikes.
+Annual members trips represent aprox. 75% out of total trips.
+Average trip length in minutes for casual members is nearly 2x bigger than the average for annual members.
+Max trip length for both member types are almos the same.
+Total trip length has a share of 60-40 (60% for annual members and 40% for casual members); this means that annual members preffer to have more short trips and casual members preffer to have more long trips (the average value of trip length confirms this).
 
 
-
-
-2.1. Average of trip length for every member type
+2. Trip information for every member type
 
 Casual members have a considerably higher average trip length than annual members.
 
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/11581613-949a-462b-ad53-f88cd62e77fb)
+![image](https://github.com/user-attachments/assets/a13ce6c3-c457-40d9-9893-eb8a59bc049c)
+![image](https://github.com/user-attachments/assets/effed1b7-f4fa-4d01-a124-d18c2bd9e690)
 
 
-2.2. Max of trip lengths for every member type
+3. Trips by member type and time of the day
 
-Casual members have a maximum trip length of 12136 minutes (202 hours), while annual members have a maximum trip length of 1498 minutes (25 hours). 
+![image](https://github.com/user-attachments/assets/59988084-241a-455e-81d8-b4280da72477)
 
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/415bcd00-6a9e-4f80-bad6-4faf6d702d7b)
-
-
-2.3. Min of trip lengths for every member type
-
-Minimum trip length for both member types is 0 minutes, which means the trip can last a few seconds.
-
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/88ed480b-6cd6-4904-9d95-d0e04ee6e2db)
+Both annual and casual member's preffered time of the day to ride is in the afternoon.
+Casual members don't like to have trips in the morning as much as annual members do.
 
 
-3. Total number of trips longer than 24h
+4. Trips by member type and day of the week
 
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/71ab3a00-e020-41de-b216-99ce3385eed9)
+![image](https://github.com/user-attachments/assets/3fd26f67-7485-4ee0-9dc1-278cd8385c20)
 
+Annual members have most trips during the week, while casual members have the most trips during the week-ends.
+
+
+3. Total number of trips longer than 1h
+
+![image](https://github.com/user-attachments/assets/bb40459b-4562-4683-863e-130f4768daf3)
+
+
+
+
+--!!!!!!!!!!!! pana aici
 
 4. Number of trips longer than 1 day per member type and bike type
 
