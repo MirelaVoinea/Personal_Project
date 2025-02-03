@@ -41,7 +41,7 @@ The data has been downloaded from [divvy-tripdata](https://divvy-tripdata.s3.ama
 There are 4 CSV files, every file representing a month of historical trip data, from January 2024 to April 2024.
 Each CSV file organizes its data into 13 columns. Each column is named using proper naming conventions: 
 - "ride_id" - string format, unique identifier for each ride
-- "rideable_type" - string format, there are 3 types of bikes: electric, classic or docked
+- "rideable_type" - string format, there are 2 types of bikes: electric and classic
 - "started_at" - date format, date and hour when the ride started
 - "ended_at" -date format, date and hour when the ride ended
 - "start_station_name" - string format, name of the station where ride started
@@ -142,16 +142,17 @@ Casual members have a higher average trip length during the afternoon.
 Both member types biggest average trip length by day of the week is during the weekends.
 
 
-6. Top 10 ending stations
+6. Top 10 ending stations for casual members on weekends
 
-![image](https://github.com/user-attachments/assets/4421ef7c-a491-4847-b1ce-d303e22c3956)
+![image](https://github.com/user-attachments/assets/9c8cb763-0356-4a1d-9d16-aa758f604522)
+
+I've applied a filter on this chart to include only data for casual members and only for Saturday and Sunday.
 
 
 ## 5. SHARE
 
-I created a Dashboard using Tableau Public to present my findings through effective data vizualisations.
-
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/b986ed71-0697-49ae-9a86-53ee3b020b0b)
+I created a Dashboard using Looker Studio to present my findings through effective data vizualisations.
+https://lookerstudio.google.com/reporting/da9998cf-8b63-4b0b-94da-013a0a83ee61/page/tEnnC/edit
 
 
 ### Key findings:
