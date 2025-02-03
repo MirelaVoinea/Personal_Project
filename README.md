@@ -86,26 +86,23 @@ Firstly I will create 4 additional columns into my new table:
 ![image](https://github.com/user-attachments/assets/c9792c0c-5840-45ef-802c-b1fe58d24bbc)
 
 Most Cyclistic's members preffer classic bikes.
-Annual members trips represent aprox. 75% out of total trips.
-Average trip length in minutes for casual members is nearly 2x bigger than the average for annual members.
-Max trip length for both member types are almos the same.
-Total trip length has a share of 60-40 (60% for annual members and 40% for casual members); this means that annual members preffer to have more short trips and casual members preffer to have more long trips (the average value of trip length confirms this).
 
 
 2. Trip information for every member type
 
-Casual members have a considerably higher average trip length than annual members.
-
 ![image](https://github.com/user-attachments/assets/a13ce6c3-c457-40d9-9893-eb8a59bc049c)
 ![image](https://github.com/user-attachments/assets/effed1b7-f4fa-4d01-a124-d18c2bd9e690)
 
+Annual members trips represent aprox. 75% out of total trips.
+Average trip length in minutes for casual members is nearly 2x bigger than the average for annual members.
+Max trip length for both member types are almos the same.
+Total trip length has a share of 60-40 (60% for annual members and 40% for casual members); this means that annual members preffer to have more short trips and casual members preffer to have more long trips (the average value of trip length confirms this).
 
 3. Trips by member type and time of the day
 
 ![image](https://github.com/user-attachments/assets/59988084-241a-455e-81d8-b4280da72477)
 
 Both annual and casual member's preffered time of the day to ride is in the afternoon.
-Casual members don't like to have trips in the morning as much as annual members do.
 
 
 4. Trips by member type and day of the week
@@ -119,123 +116,35 @@ Annual members have most trips during the week, while casual members have the mo
 
 ![image](https://github.com/user-attachments/assets/bb40459b-4562-4683-863e-130f4768daf3)
 
+Both annual and casual members have the biggest share of trips out of total trips longer than 1 hour during the weekends.
+Casual members have aprox. 7 times more trips (longer than 1 hour) than annual members during the weekends. 
 
 
+4. Total number of trips shorter than 1h
 
---!!!!!!!!!!!! pana aici
+![image](https://github.com/user-attachments/assets/ca1013be-2bf4-4d83-a246-fa9e0d0a017d)
 
-4. Number of trips longer than 1 day per member type and bike type
-
-There are zero trips longer than 1 day for electric bikes and annual members who got docked bikes.
-
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/734fc8db-e306-46cf-8f8f-251a34a72497)
+Annual members have a notable bigger share of trips shorter than 1 hour.
 
 
-5. Average trip length in minutes for each day of the week by member type
+5. Average trip lenght in minutes by member type and time of the day
 
-Casual and annual members have a higher average trip length on weekends
+![image](https://github.com/user-attachments/assets/d883dce0-ae35-493d-9a31-805f624f0834)
 
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/cdd6cb15-a68a-4440-92ab-04aa0588ed2d)
-
-
-6. Average trip length in minutes per month for each member type
-
-Both member types preffer to ride bikes on hot season.
-
-For annual members:
-
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/d4da1601-cd24-4324-95a1-5f51feaf4076)
+Annual members have a constant average trip length at any time of the day (~ 11 minutes).
+Casual members have a higher average trip length during the afternoon.
 
 
-For casual members:
+5. Average trip length in minutes by member type and day of the week
 
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/ed9c6917-21de-435c-9a84-6d2f79584441)
+![image](https://github.com/user-attachments/assets/cc36e3e4-47cd-4c6b-8dc4-79293616994a)
 
-
-7.1 Number of trips per hour by each member types
-
-I copy-pasted the result because it couldn't fit in a screenshot.
-
-- number_trips	hour	member_casual
-- 150649	17	casual
-- 138641	16	casual
-- 126652	18	casual
-- 119605	15	casual
-- 108312	14	casual
-- 104383	13	casual
-- 100356	12	casual
-- 92713	19	casual
-- 85118	11	casual
-- 67222	10	casual
-- 66291	20	casual
-- 54619	21	casual
-- 53037	9	casual
-- 52971	8	casual
-- 48340	22	casual
-- 39126	7	casual
-- 34773	23	casual
-- 25018	0	casual
-- 22166	6	casual
-- 16066	1	casual
-- 9277	2	casual
-- 8221	5	casual
-- 4705	3	casual
-- 3589	4	casual
-- 303521	17	member
-- 258638	16	member
-- 235056	18	member
-- 194764	8	member
-- 189087	15	member
-- 163859	19	member
-- 158379	7	member
-- 152822	14	member
-- 152495	12	member
-- 151263	13	member
-- 134066	11	member
-- 127084	9	member
-- 113653	10	member
-- 112637	20	member
-- 85504	21	member
-- 84802	6	member
-- 61874	22	member
-- 38462	23	member
-- 26724	5	member
-- 23586	0	member
-- 13592	1	member
-- 7439	2	member
-- 5922	4	member
-- 4709	3	member
+Both member types biggest average trip length by day of the week is during the weekends.
 
 
-7.2 Number of trips per weekday by each member types
+6. Top 10 ending stations
 
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/fb9e6592-9a25-47df-9562-a01c559c0af3)
-
-  
-7.3 Number of trips per month by each member types
-
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/8696aa58-419a-4718-a59b-7d37205ddf8d)
-
-
-8. Percent of member riders and casual riders
-
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/67956c9b-5590-4df7-a124-d45ef816885e)
-
-   
-9. Bike type count per user type
-
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/876debe3-18bd-46d9-a453-52f410f64a60)
-
-
-10. Top 10 most popular starting stations
-
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/c3fe63d8-e348-4120-ab7b-897d411e01af)
-
-
-11. Top 10 most popular ending stations
-
-![image](https://github.com/MirelaVoinea/Personal_Project/assets/171570001/368c2988-1ab4-4d7f-b953-b9f194fd9b75)
-
+![image](https://github.com/user-attachments/assets/4421ef7c-a491-4847-b1ce-d303e22c3956)
 
 
 ## 5. SHARE
@@ -247,19 +156,19 @@ I created a Dashboard using Tableau Public to present my findings through effect
 
 ### Key findings:
 
-- Annual members represent 64.64% of the total members, while casual members represent 35.36%
+- Total trips by annual members represent 74.28% of the total trips, while casual members represent 25.72%.
 
-- Annual members have an average trip duration nearly half of the casual member's average trip duration.
+- Annual members have an average trip duration (~11 minutes) nearly half of the casual member's average trip duration (~22 minutes).
 
 - Annual members travel more frequently but on shorter distances, while casual members travel less frequently (mostly on weekends) but on longer distances.
 
-- Annual members don't ride docked bikes.
+- Annual members prefer riding bikes during the week, while casual members prefer riding bikes on weekends.
 
-- Annual members prefer riding clasic and electric bikes on workdays, while casual members prefer riding bikes on weekends.
+- Both member types preffer to have trips longer than 1 hour during the weekends.
 
-- Both member types enjoy using bikes during the warm season.
+- Casual members have 7x more trips longer than 1 hour during the weekends than annual members have.
 
-- Most annual members ride bikes during peak hours (8 AM and 5 PM), most likely for work/school.
+- Annual members have more trips shorter than 1 hour than casual members have.
 
 - Most casual members ride bikes in the afternoon, most likely for leisure activities. 
 
@@ -271,10 +180,10 @@ Based on my analysis, my final conclusion is that Cyclistic should convert their
 
 Based on my findings, my recommendations are:
 
-1. Discounts for casual members who have an average trip length of minimum 10 minutes. I would recommend sending them a discount code for buying annual membership through SMS or e-mail.
+1. Discounts for casual members who have an average trip length of minimum 10 minutes and even a bigger discount for members who have a at least a trip longer than 1 hour. I would recommend sending them a discount code for buying annual membership through SMS or e-mail.
 
-2. Membership benefits: make contracts with sports shops to offer annual members a discount for every purchase they make.
+2. Membership benefits: make contracts with sport equipment shops to offer annual members a discount for every purchase they make and use this membership benefit in the marketing program to make casual members buy annual membership.
   
-3. Sales representatives at top 10 starting stations where casual riders begin their trips on weekends. The sales representatives should show the casual riders the benefits of having annual membership, and offer them a discount if they buy the annual membershep straight away.
+3. Sales representatives at top 10 ending stations where casual riders end their trips on weekends. The sales representatives should show the casual riders the benefits of having annual membership, and offer them a discount if they buy the annual membership straight away.
 
 4. Digital media: partnership with influencers to promote the annual memberships.
